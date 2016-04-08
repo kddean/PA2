@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <meta charset="ISO-8859-1"> -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>HRS</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-bottom">
+
+		<ul class="nav navbar-nav">
+			<li><a href="#FindForm">Create Customer</a></li>
+			<li><a href="#RoomForm">Reserve Room</a></li>
+			<li><a href="#PayForm">Create Payment</a></li>
+			<li><a href="#TForm">Get Customer By ID</a></li>
+			<li><a href="#CForm">Get Customer By Name</a></li>
+			<li><a href="#section1">Get Current Customers</a></li>
+			<li><a href="TForm">Get Transactions</a></li>
+			<li><a href="#section1">Get Vacancies</a></li>
+			<li><a href="#section1">Get Reservations</a></li>
+	</ul>
+	</nav>
+	
+
+
+
+
+
+	<div class="container">
+		<p>Commands: Create Customer, Reserve Room, Create Payment, Get
+			Customer By ID, Get Customer By Name, Get Current Customers, Get
+			Transactions, Get Vacancies, Get Reservations</p>
+		<form name="HRSForm">
+			<div class="form-group">
+				<label for="cmmd">Please Enter A Command:</label> <input type="text"
+					class="form-control" name="cmmd" id="cmmd">
+			</div>
+		</form>
+	</div>
+	<div class="container">
+	<button id="act" class="btn btn-primary">Submit</button>
+<p><b>After entering a command, please select the action below to go to the correct section.</b></p>
+</div>
+	<div class="container">
+		<form name="FindForm" id="FindForm" >
+			<div class="form-group">
+				<p>Please Enter The Following Info:</p>
+				<label for="first">First Name:</label><input type="text"
+					class="form-control" name="first"> <label for="last">Last
+					Name:</label><input type="text" class="form-control" name="last"> <label
+					for="phone">Phone Number</label><input type="text"
+					class="form-control" name="phone"> <label for="address">Address:</label><input
+					type="text" class="form-control" name="address"> <label
+					for="city">City:</label><input type="text" class="form-control"
+					name="city"> <label for="state"> State: (Ex: TN)</label><input
+					type="text" class="form-control" name="state"> <label
+					for="zip">Zip:</label><input type="text" class="form-control"
+					name="zip"> <label for="checkin">Checkin Date: (Ex:
+					YYYY-MM-DD)</label><input type="text" class="form-control" name="checkin">
+				<label for="checkout">Checkout Date: (Ex: YYYY-MM-DD)</label><input
+					type="text" class="form-control" name="checkout">
+				<button id="cusub" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="container">
+		<form name="PayForm" id="PayForm" >
+			<div class="form-group">
+				<p>Please Enter The Following Info:</p>
+				<label for="cid">Customer Id:</label><input type="text"
+					class="form-control" name="cid"> <label for="room">Room
+					Number:</label><input type="text" class="form-control" name="room">
+				<label for="amount">Amount:</label><input type="text"
+					class="form-control" name="amount"> <label for="cnn">Credit
+					Card Number:</label><input type="text" class="form-control" name="ccn">
+				<label for="edate">Expiration Date: (Ex: YYYY-MM-DD)</label><input
+					type="text" class="form-control" name="edate">
+				<button id="paysub" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="container">
+		<form name="RoomForm" id="RoomForm" >
+			<div class="form-group">
+				<p>Please Enter The Following Info:</p>
+				<label for="cid">Customer Id:</label><input type="text"
+					class="form-control" name="cid"> <label for="room">Room
+					Number:</label><input type="text" class="form-control" name="room">
+				<button id="roomsub" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="container">
+		<form name="CForm" id="CForm" >
+			<div class="form-group">
+				<p>Please Enter The Following Info:</p>
+				<label for="cname">Customer First or Last Name:</label><input
+					type="text" class="form-control" name="cname">
+				<button id="csub" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="container">
+		<form name="TForm" id="TForm" >
+			<div class="form-group">
+				<p>Please Enter The Following Info:</p>
+				<label for="id">Customer Id:</label><input type="text"
+					class="form-control" name="id">
+				<button id="tsub" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+	<!-- 	<script src="HRS.js"></script> -->
+
+<div id="sec">
+        <form >
+       
+            <legend id="ajaxResponse">Result</legend>
+                 <div id="ajaxResponse"></div>
+       
+       </form>
+    </div> 
+    
+
+    
+	<script>
+		/* $(#cusub).click(function(){
+		 $.ajax({
+		 url:"/Hotel_Reservation_System_-_Single_Page/HRS.html",
+		 method:"POST",
+		 dataType: "text/javascript",
+		 success: function(data,status,xhr){
+		 $("#ajaxResponse").html(data);
+		 },
+		 error: function(data,status,xhr){
+		 $("ajaxResponse").html("Error");
+		 }
+		 data: name
+		 }  */
+	</script>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript"></script>
+	<script>
+		var mmd = $("#cmmd").val();
+
+		$("#act").click(function() {
+			$("#FindForm").show();
+		})
+
+		/* if(mmd == "Reserve Room"){
+			$("#act").click(function() {
+				$("RoomForm").show();
+			})
+		} */
+		/* if(mmd == "Create Payment"){
+			$("#act").click(function() {
+				$("#PayForm").show();
+			})
+		} */
+		/* if(mmd == "Get Customer By ID"){
+			$("#act").click(function() {
+				$("#TForm").show();
+			})
+		} */
+		/* if(mmd == "Get Customer By Name"){
+			$("#act").click(function() {
+				$("#CForm").show();
+			})
+		} */
+		/* 		if(mmd == "Get Current Customers"){
+		 $("#act").click(function() {
+		 alert("This function isn't functional");
+		 })
+		 }
+		 if(mmd == "Get Transactions"){
+		 $("#act").click(function() {
+		 $("#TForm").show();
+		 })
+		 }
+		 if(mmd == "Get Vacancies"){
+		
+		 }
+		 if(mmd == "Get Reservations"){}
+		 */
+	</script>
+</body>
+</html>
